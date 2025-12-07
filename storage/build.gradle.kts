@@ -65,6 +65,9 @@ kotlin {
 
                 implementation(libs.androidx.room.runtime)
                 implementation(libs.androidx.sqlite.bundled)
+
+                implementation(project.dependencies.platform(libs.koin.bom))
+                implementation(libs.koin.core)
             }
         }
 
@@ -77,6 +80,9 @@ kotlin {
         androidMain {
             dependencies {
                 implementation(libs.androidx.room.sqlite.wrapper)
+
+                implementation(project.dependencies.platform(libs.koin.bom))
+                implementation(libs.koin.android)
             }
         }
 
