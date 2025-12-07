@@ -9,6 +9,7 @@ import dev.jjerrell.sandbox.client.storage.dao.SandboxDao
 import dev.jjerrell.sandbox.client.storage.entity.SandboxEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
+import org.koin.core.module.Module
 
 @Database(entities = [SandboxEntity::class], version = 1)
 @ConstructedBy(AppDatabaseConstructor::class)
@@ -21,6 +22,8 @@ abstract class AppDatabase : RoomDatabase() {
 expect object AppDatabaseConstructor : RoomDatabaseConstructor<AppDatabase> {
     override fun initialize(): AppDatabase
 }
+
+expect fun createPlatformModule(): Module
 
 fun getRoomDatabase(
     builder: RoomDatabase.Builder<AppDatabase>
